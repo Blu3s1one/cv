@@ -1,4 +1,5 @@
 import type { CVData } from '@/types/cv'
+import { withBase } from '@/lib/base-url'
 
 export const en: CVData = {
   name: 'Pierre Gaillard',
@@ -94,8 +95,8 @@ export const en: CVData = {
       description:
         'I trained autonomous mini-cars (DonkeyCar kits) using a reinforcement learning approach to race against other students in a race organized between schools and universities in Nantes.',
       videos: [
-        { title: 'training', url: '/videos/training.mp4' },
-        { title: 'race day', url: '/videos/racing.mp4' },
+        { title: 'training', url: withBase('videos/training.mp4') },
+        { title: 'race day', url: withBase('videos/racing.mp4') },
       ],
     },
   ],

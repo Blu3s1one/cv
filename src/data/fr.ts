@@ -1,4 +1,5 @@
 import type { CVData } from '@/types/cv'
+import { withBase } from '@/lib/base-url'
 
 export const fr: CVData = {
   name: 'Pierre Gaillard',
@@ -94,8 +95,8 @@ export const fr: CVData = {
       description:
         "Entraînement de mini-voitures autonomes (kits DonkeyCar) avec une méthode d'apprentissage par renforcement.",
       videos: [
-        { title: 'training', url: '/videos/training.mp4' },
-        { title: 'race day', url: '/videos/racing.mp4' },
+        { title: 'training', url: withBase('videos/training.mp4') },
+        { title: 'race day', url: withBase('videos/racing.mp4') },
       ],
     },
   ],
