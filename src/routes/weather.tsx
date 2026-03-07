@@ -113,7 +113,7 @@ function WeatherPage() {
 
         <div className="flex justify-center">
           <Button asChild size="lg">
-            <Link to="/">Back to CV</Link>
+            <Link to="/">{t('weather.backToCv')}</Link>
           </Button>
         </div>
       </div>

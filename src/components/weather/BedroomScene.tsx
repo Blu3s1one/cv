@@ -2,7 +2,6 @@ type SceneWeather = 'sunny' | 'cloudy' | 'rainy' | 'snowy'
 type SceneTime = 'day' | 'night'
 
 interface TVContent {
-  title: string
   loadingLabel: string
   unavailableLabel: string
   state: 'loading' | 'error' | 'ready'
