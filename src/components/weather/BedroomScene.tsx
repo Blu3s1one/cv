@@ -129,42 +129,25 @@ interface TVScreenContentProps {
 function TVScreenContent({ tvContent }: TVScreenContentProps) {
   if (tvContent.state === 'loading') {
     return (
-      <>
-        <p className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
-          {tvContent.title}
-        </p>
         <p className="text-sm text-cyan-100/80">{tvContent.loadingLabel}</p>
-      </>
     )
   }
 
   if (tvContent.state === 'error') {
     return (
-      <>
-        <p className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
-          {tvContent.title}
-        </p>
         <p className="text-sm text-rose-200">{tvContent.unavailableLabel}</p>
-      </>
+      
     )
   }
 
   if (!tvContent.city || tvContent.temperature === undefined) {
     return (
-      <>
-        <p className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
-          {tvContent.title}
-        </p>
         <p className="text-sm text-rose-200">{tvContent.unavailableLabel}</p>
-      </>
     )
   }
 
   return (
     <>
-      <p className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
-        {tvContent.title}
-      </p>
       <p className="truncate text-sm font-semibold leading-tight text-white">
         {tvContent.city}
       </p>

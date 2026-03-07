@@ -97,7 +97,6 @@ function WeatherPage() {
           weather={sceneWeather}
           time={sceneTime}
           tvContent={{
-            title: t('weather.title'),
             loadingLabel: t('weather.loading'),
             unavailableLabel: t('weather.unavailable'),
             city: weatherData?.city,

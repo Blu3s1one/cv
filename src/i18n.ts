@@ -45,8 +45,7 @@ const resources = {
                 pageTitle: 'Weather',
                 pageSubtitle:
                     'This page detects your approximate location and shows the current local weather conditions.',
-                title: 'Weather near you',
-                loading: 'Loading weather...',
+                loading: 'Loading...',
                 unavailable: 'Weather unavailable',
                 wind: 'Wind',
             },
@@ -67,8 +66,7 @@ const resources = {
                 pageTitle: 'Météo',
                 pageSubtitle:
                     'Cette page détecte votre position approximative et affiche les conditions météo locales actuelles.',
-                title: 'Météo chez vous',
-                loading: 'Chargement de la météo...',
+                loading: 'Chargement...',
                 unavailable: 'Météo indisponible',
                 wind: 'Vent',
             },
