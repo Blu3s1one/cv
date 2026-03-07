@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pierre Gaillard</title>
+    <link rel="icon" type="image/svg+xml" href="/book-icon.svg" />
+    <script>
+      ;(() => {
+        const stored = window.localStorage.getItem('theme')
+        const mode =
+          stored === 'light' || stored === 'dark' || stored === 'auto'
+            ? stored
+            : 'auto'
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches
+        const resolved =
+          mode === 'auto' ? (prefersDark ? 'dark' : 'light') : mode
+
+        document.documentElement.classList.remove('light', 'dark')
+        document.documentElement.classList.add(resolved)
+
+        if (mode === 'auto') {
+          document.documentElement.removeAttribute('data-theme')
+        } else {
+          document.documentElement.setAttribute('data-theme', mode)
+        }
+
+        document.documentElement.style.colorScheme = resolved
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
