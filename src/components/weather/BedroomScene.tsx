@@ -139,7 +139,7 @@ function TVScreenContent({ tvContent }: TVScreenContentProps) {
     )
   }
 
-  if (!tvContent.city || tvContent.temperature === undefined) {
+  if (tvContent.temperature === undefined) {
     return (
         <p className="text-sm text-rose-200">{tvContent.unavailableLabel}</p>
     )
@@ -147,9 +147,11 @@ function TVScreenContent({ tvContent }: TVScreenContentProps) {
 
   return (
     <>
-      <p className="truncate text-sm font-semibold leading-tight text-white">
-        {tvContent.city}
-      </p>
+      {tvContent.city && (
+        <p className="truncate text-sm font-semibold leading-tight text-white">
+          {tvContent.city}
+        </p>
+      )}
       <div className="flex items-end gap-2">
         <p className="text-xl font-bold tracking-tight text-cyan-50">
           {tvContent.temperature}°C

@@ -12,10 +12,10 @@ interface OpenMeteoResponse {
 }
 
 export async function getUserLocation(): Promise<UserLocation> {
-  const res = await fetch('https://get.geojs.io/v1/ip/geo.json', {
+  const res = await fetch('https://ipapi.co/json/', {
     cache: 'no-store',
   })
-  if (!res.ok && res.status !== 304) {
+  if (!res.ok) {
     throw new Error('Failed to fetch location')
   }
 

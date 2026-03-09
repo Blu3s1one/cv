@@ -34,7 +34,7 @@ function WeatherPage() {
     search.city.length > 0 &&
     search.temperature !== undefined &&
     search.weather !== undefined
-  const { data, isLoading, error } = useWeather({ enabled: !hasUrlWeather })
+  const { data, isLoading } = useWeather({ enabled: !hasUrlWeather })
   const weatherData = hasUrlWeather
     ? {
         city: search.city,
@@ -105,9 +105,9 @@ function WeatherPage() {
               ? 'ready'
               : isLoading
                 ? 'loading'
-                : error || !weatherData
-                  ? 'error'
-                  : 'ready',
+                : weatherData
+                  ? 'ready'
+                  : 'error',
           }}
         />
 

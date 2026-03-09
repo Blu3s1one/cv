@@ -34,12 +34,34 @@ export function useWeather({ enabled = true }: UseWeatherOptions = {}) {
 function getSceneWeatherFromCode(code?: number) {
   if (code === undefined) return 'sunny' as const
 
-  if (code === 0) return 'sunny' as const
-  if (code >= 1 && code <= 3) return 'cloudy' as const
-  if ((code >= 45 && code <= 67) || (code >= 80 && code <= 82))
-    return 'rainy' as const
-  if ((code >= 71 && code <= 77) || (code >= 85 && code <= 86))
-    return 'snowy' as const
+  // Open-Meteo / WMO weather codes:
+  // 0: Clear sky
+  // 1: Mainly clear
+  if (code === 0 || code === 1) return 'sunny' as const
 
+  // 2: Partly cloudy, 3: Overcast
+  // 45, 48: Fog / depositing rime fog
+  if (code === 2 || code === 3 || code === 45 || code === 48)
+    return 'cloudy' as const
+
+  // Drizzle, freezing drizzle, rain, freezing rain, rain showers,
+  // and all thunderstorm variants → treat as rainy
+  if (
+    [
+      51, 53, 55, // drizzle
+      56, 57, // freezing drizzle
+      61, 63, 65, // rain
+      66, 67, // freezing rain
+      80, 81, 82, // rain showers
+      95, 96, 99, // thunderstorm (with/without hail)
+    ].includes(code)
+  ) {
+    return 'rainy' as const
+  }
+
+  // Snow fall, snow grains, snow showers → snowy
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return 'snowy' as const
+
+  // Any other (rare/unsupported) code: fall back to cloudy
   return 'cloudy' as const
 }
