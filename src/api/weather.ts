@@ -12,8 +12,12 @@ interface OpenMeteoResponse {
 }
 
 export async function getUserLocation(): Promise<UserLocation> {
-  const res = await fetch('https://get.geojs.io/v1/ip/geo.json')
-  if (!res.ok) throw new Error('Failed to fetch location')
+  const res = await fetch('https://get.geojs.io/v1/ip/geo.json', {
+    cache: 'no-store',
+  })
+  if (!res.ok && res.status !== 304) {
+    throw new Error('Failed to fetch location')
+  }
 
   const data = (await res.json()) as Partial<{
     city: unknown
