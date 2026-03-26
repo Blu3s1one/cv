@@ -21,7 +21,7 @@ export interface ProjectVideo {
 export interface Project {
   name: string
   subtitle: string
-  date: string
+  date?: string
   description: string
   url?: string
   videos?: ProjectVideo[]

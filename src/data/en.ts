@@ -81,6 +81,14 @@ export const en: CVData = {
 
   projects: [
     {
+      name: 'What am I thinking',
+      subtitle: 'Personal Project',
+      date: '2026',
+      description:
+        'A web game where the user has to guess a secret word by asking closed questions to an LLM. Built with OpenRouter, Cloudflare, TypeScript, TanStack Start, and Drizzle ORM.',
+      url: 'https://wait.pi-ga.fr',
+    },
+    {
       name: 'wesplit',
       subtitle: 'Personal Project',
       date: '2025',
@@ -98,6 +106,12 @@ export const en: CVData = {
         { title: 'training', url: withBase('videos/training.mp4') },
         { title: 'race day', url: withBase('videos/racing.mp4') },
       ],
+    },
+    {
+      name: 'Top secret',
+      subtitle: 'Ongoing Project',
+      description:
+        'A turn-based online browser game built with Three.js for the game engine, and Elysia with Drizzle for the backend.',
     },
   ],
 

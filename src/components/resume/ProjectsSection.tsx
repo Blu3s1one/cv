@@ -84,7 +84,8 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
                       {project.name}
                     </CardTitle>
                     <CardDescription className="text-[var(--sea-ink-soft)]">
-                      {project.subtitle} · {project.date}
+                      {project.subtitle}
+                      {project.date ? ` · ${project.date}` : ''}
                     </CardDescription>
                   </div>
                   <div className="flex shrink-0 gap-1">
